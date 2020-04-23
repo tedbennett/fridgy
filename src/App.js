@@ -1,12 +1,10 @@
-import React from 'react';
-import '@atlaskit/css-reset';
+import React from "react";
+import "@atlaskit/css-reset";
+import FridgeList from "./FridgeList";
+import initialData from "./initial-data";
 
 function App() {
-  return (
-    <div>
-      Hello World
-    </div>
-  );
+    return <FridgeList items={initialData} />;
 }
 
 export default App;
