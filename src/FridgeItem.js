@@ -15,25 +15,25 @@ const QuantityBox = styled.div`
 `;
 
 const TitleBox = styled.div`
-    width:85%;
+    width: 80%;
     display: inline-block;
 `;
 
 const ExpiryBox = styled.div`
     display: inline-block;
-    width:10%;
-    text-align:right;
+    width: 15%;
+    text-align: right;
 `;
 
 export class FridgeItem extends Component {
     render() {
-        return <Container>
-            <QuantityBox>{this.props.item.quantity}x</QuantityBox>
-            
-            <TitleBox>{this.props.item.title}</TitleBox>
-            
-            <ExpiryBox>{this.props.item.expiry}</ExpiryBox>
-            </Container>;
+        return (
+            <Container>
+                <QuantityBox>{this.props.item.quantity}x</QuantityBox>
+                <TitleBox>{this.props.item.title}</TitleBox>
+                <ExpiryBox>{this.props.item.expiry.fromNow()}</ExpiryBox>
+            </Container>
+        );
     }
 }
 
