@@ -1,21 +1,22 @@
 import React, { Component } from "react";
-import "@atlaskit/css-reset";
-import FridgeList from "./FridgeList";
+import FridgeList from "./components/FridgeList";
 import initialData from "./initial-data";
-import AddItemPopup from "./AddItemPopup";
+import AddItemModal from "./components/AddItemModal";
 
 class App extends Component {
     state = { items: initialData, showPopup: false };
 
     togglePopup = () => {
+        console.log(this.state.showPopup);
         this.setState({
             showPopup: !this.state.showPopup,
         });
     };
 
-    onAddItem = (newItem) => {
+    addItem = (newItem) => {
         this.setState((prevState) => ({
             items: [...prevState.items, newItem],
+            showPopup: !this.state.showPopup,
         }));
     };
 
@@ -27,7 +28,7 @@ class App extends Component {
                     togglePopup={this.togglePopup}
                 />
                 {this.state.showPopup ? (
-                    <AddItemPopup closePopup={this.togglePopup.bind(this)} />
+                    <AddItemModal addItem = {this.addItem.bind(this)} closePopup={this.togglePopup.bind(this)} />
                 ) : null}
             </div>
         );
