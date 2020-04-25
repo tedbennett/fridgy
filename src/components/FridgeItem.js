@@ -37,5 +37,3 @@ export class FridgeItem extends Component {
         );
     }
 }
-
-//export default FridgeItem;
