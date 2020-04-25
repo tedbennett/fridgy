@@ -3,6 +3,7 @@ import { FridgeItem } from "./FridgeItem";
 
 import React, { Component } from "react";
 import AddItemButton from "./AddItemButton";
+import { ListGroup } from "react-bootstrap";
 const Container = styled.div`
     margin: auto;
     width: 50%;
@@ -17,14 +18,13 @@ export class FridgeList extends Component {
         return (
             <Container>
                 <Title>What's In Your Fridge?</Title>
-                <div>
-                    {console.log(this.props.items)}
+                <ListGroup>
                     {this.props.items
                         .sort((a, b) => a.expiry > b.expiry)
                         .map((item) => (
                             <FridgeItem key={item.id} item={item} />
                         ))}
-                </div>
+                </ListGroup>
                 <AddItemButton togglePopup={this.props.togglePopup} />
             </Container>
         );

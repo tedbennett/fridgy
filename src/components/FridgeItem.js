@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { ListGroup } from "react-bootstrap";
 
 export const Item = styled.div`
     margin: 8px;
@@ -28,11 +29,11 @@ const ExpiryBox = styled.div`
 export class FridgeItem extends Component {
     render() {
         return (
-            <Item>
+            <ListGroup.Item>
                 <QuantityBox>{this.props.item.quantity}x</QuantityBox>
                 <TitleBox>{this.props.item.title}</TitleBox>
                 <ExpiryBox>{this.props.item.expiry.fromNow()}</ExpiryBox>
-            </Item>
+            </ListGroup.Item>
         );
     }
 }
