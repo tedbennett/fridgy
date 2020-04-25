@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+export const Item = styled.div`
     margin: 8px;
     padding: 8px;
     border: 2px solid lightgrey;
@@ -28,13 +28,13 @@ const ExpiryBox = styled.div`
 export class FridgeItem extends Component {
     render() {
         return (
-            <Container>
+            <Item>
                 <QuantityBox>{this.props.item.quantity}x</QuantityBox>
                 <TitleBox>{this.props.item.title}</TitleBox>
                 <ExpiryBox>{this.props.item.expiry.fromNow()}</ExpiryBox>
-            </Container>
+            </Item>
         );
     }
 }
 
-export default FridgeItem;
+//export default FridgeItem;

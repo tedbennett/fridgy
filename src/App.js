@@ -27,9 +27,7 @@ class App extends Component {
                     togglePopup={this.togglePopup}
                 />
                 {this.state.showPopup ? (
-                    <AddItemPopup
-                        closePopup={this.togglePopup.bind(this)}
-                    />
+                    <AddItemPopup closePopup={this.togglePopup.bind(this)} />
                 ) : null}
             </div>
         );

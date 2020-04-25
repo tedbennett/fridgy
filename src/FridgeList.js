@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FridgeItem from "./FridgeItem";
+import { FridgeItem } from "./FridgeItem";
 
 import React, { Component } from "react";
 import AddItemButton from "./AddItemButton";
@@ -25,7 +25,7 @@ export class FridgeList extends Component {
                             <FridgeItem key={item.id} item={item} />
                         ))}
                 </div>
-                <AddItemButton togglePopup={this.props.togglePopup}/>
+                <AddItemButton togglePopup={this.props.togglePopup} />
             </Container>
         );
     }

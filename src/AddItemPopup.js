@@ -30,7 +30,7 @@ export class AddItemPopup extends Component {
             <PopupBackground>
                 <PopupBody>
                     Add your item here!
-                <button onClick={this.props.closePopup}>Close popup</button>
+                    <button onClick={this.props.closePopup}>Close popup</button>
                 </PopupBody>
             </PopupBackground>
         );
