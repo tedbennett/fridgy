@@ -3,7 +3,6 @@ import { FridgeItem } from "./FridgeItem";
 
 import React, { Component } from "react";
 import { ListGroup, Button } from "react-bootstrap";
-import { DateTime } from "react-datetime-bootstrap";
 
 const Container = styled.div`
     margin: auto;

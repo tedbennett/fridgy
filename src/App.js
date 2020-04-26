@@ -4,7 +4,7 @@ import initialData from "./initial-data";
 import AddItemModal from "./components/AddItemModal";
 
 class App extends Component {
-    state = { items: initialData, showPopup: false };
+    state = { items: [], showPopup: false };
 
     togglePopup = () => {
         console.log(this.state.showPopup);

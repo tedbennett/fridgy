@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import moment from "moment";
-import {DateTime} from "react-datetime-bootstrap";
+import { DateTime } from "react-datetime-bootstrap";
 
 const ModalBackground = styled.div`
     position: fixed;
@@ -16,14 +16,38 @@ const ModalBackground = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
 `;
 
-const newItem = {
-    id: 4,
-    title: "Beef",
-    quantity: 3,
-    expiry: moment("2020-04-30"),
-};
-
 export class AddItemModal extends Component {
+    state = {
+        form: {
+            title: "",
+            quantity: "",
+            expiry: moment().add(7, "days"),
+        },
+    };
+    onNameChange = (event) => {
+        if (event.target.value.match("^[a-zA-Z ]*$") != null) {
+            this.setState({
+                form: { ...this.state.form, title: event.target.value },
+            });
+        }
+    };
+
+    onQuantityChange = (event) => {
+        const newNumber = Number(event.target.value);
+        if (!isNaN(newNumber)) {
+            this.setState({
+                form: { ...this.state.form, quantity: newNumber },
+            });
+        }
+    };
+
+    onExpiryChange = (date) => {
+        const newDate = moment(date);
+        if (newDate.isValid()) {
+            this.setState({ form: { ...this.state.form, expiry: newDate } });
+        }
+    };
+
     render() {
         return (
             <ModalBackground>
@@ -38,7 +62,14 @@ export class AddItemModal extends Component {
                                 <Col>
                                     <Form.Group controlId="formGroupTitle">
                                         <Form.Label>Item Name</Form.Label>
-                                        <Form.Control placeholder="Enter name" />
+                                        <Form.Control
+                                            placeholder="Enter Name"
+                                            value={this.state.form.title}
+                                            maxLength={50}
+                                            onChange={this.onNameChange.bind(
+                                                this
+                                            )}
+                                        />
                                     </Form.Group>
                                 </Col>
                             </Row>
@@ -47,15 +78,26 @@ export class AddItemModal extends Component {
                                     <Form.Group controlId="formGroupQuantity">
                                         <Form.Label>Quantity</Form.Label>
                                         <Form.Control
-                                            type="text"
                                             placeholder="Enter Quantity"
+                                            value={this.state.form.quantity}
+                                            maxLength={2}
+                                            onChange={this.onQuantityChange.bind(
+                                                this
+                                            )}
+                                            type="text"
                                         />
                                     </Form.Group>
                                 </Col>
                                 <Col>
                                     <Form.Group controlId="formGroupExpiry">
-                                    <Form.Label>Expiry Date</Form.Label>
-                                    <DateTime pickerOptions={{format:"LL"}} value={moment().add(7,'days')}/>
+                                        <Form.Label>Expiry Date</Form.Label>
+                                        <DateTime
+                                            pickerOptions={{ format: "LL" }}
+                                            value={this.state.form.expiry}
+                                            onChange={this.onExpiryChange.bind(
+                                                this
+                                            )}
+                                        />
                                     </Form.Group>
                                 </Col>
                             </Row>
@@ -70,7 +112,7 @@ export class AddItemModal extends Component {
                             Cancel
                         </Button>
                         <Button
-                            onClick={this.props.addItem.bind(this, newItem)}
+                            onClick={this.props.addItem.bind(this, this.state.form)}
                             variant="primary"
                         >
                             Add Item
