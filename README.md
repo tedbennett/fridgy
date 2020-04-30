@@ -1,68 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Fridgy
 
-## Available Scripts
+### Description
 
-In the project directory, you can run:
+This is a fridge organiser web app to help you keep track of what is in your fridge.
 
-### `yarn start`
+At the moment, it is a list of items in your fridge, displaying their names, quantities, and sorted by expiration date.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I have a lot of ideas for this project, but for now I am focusing on the iOS version.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Future Features
 
-### `yarn test`
+- Selecting several items will allow a google search for recipes with those items to be made
+  - This was one of the key ideas behind this - to be able to get recipes for things in your fridge that are about to expire
+- Colour coding for items about to expire
+- Tag items that are in the freezer and colour code them too
+  - Separate the list into 3-4 lists of fridge, freezer, pantry, maybe condiments
+- The quantity feature is not particularly useful, since it requires micromanagement and I imagine most people would set this to 1 for convenience.
+  - Instead, quantity will be replaced by a counter with 3 states - in the fridge, running low, and run out.
+  - The only times that the user would update is if they are running low or have run out.
+  - This will lead to better effectiveness of shopping lists (see below)
+- The option to 'permanently' add to the fridge for items that you will always have in your fridge
+  - If you run out of one of these, they will be remembered by the app
+  - Potentially available in a drop down when you enter the items name
+- A shopping list can be generated to include all of the items you have marked as running low on, as well as any of the items you have marked as permanently in your fridge
+- Barcode scanning support will make entering items into your list much easier
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Created using create-react-app with the MERN stack and bootstrap
